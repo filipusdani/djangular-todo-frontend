@@ -1,0 +1,25 @@
+<div class="w-full text-center mt-4">
+    <button mat-raised-button (click)="newTodoDialog()" color="primary" class="w-full max-w-xl" matTooltip="Create New"><mat-icon>add</mat-icon></button>
+</div>
+
+<div
+    cdkDropList
+    (cdkDropListDropped)="drop($event)"
+    *ngIf="!loadingDragDrop">
+    <div *ngFor="let todo of todolist" class="w-full">
+        <mat-card class="border rounded m-4 max-w-xl mx-auto" cdkDrag>
+            <mat-card-header>
+                <mat-card-title>{{todo.task}}</mat-card-title>
+                <mat-card-subtitle>Due Date: {{todo.due_date}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content  class="pl-4">
+                <p>{{todo.description}}</p>
+                <mat-divider></mat-divider>
+            </mat-card-content>
+            <mat-card-actions  class="pl-3" align="end">
+                <button mat-button (click)="editTodoDialog(todo.id)">EDIT</button>
+                <button mat-button (click)="deleteTodo(todo.id)" color="warn">DELETE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

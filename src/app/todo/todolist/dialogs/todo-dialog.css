@@ -1,0 +1,9 @@
+.date_container {        
+    float: left;
+    display: flex;
+}
+
+.date_toggle_container {        
+    float: right;
+    display: flex;
+}

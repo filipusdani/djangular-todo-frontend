@@ -1,0 +1,33 @@
+<div class="flex flex-row w-full justify-between">
+  <h1 mat-dialog-title class="">Edit Todo</h1>
+  <button mat-icon-button matTooltip="Close" (click)="onNoClick()" class="mat-elevation-z0"><mat-icon>cancel</mat-icon></button>
+</div>
+
+<div class="pt-4">
+  <form [formGroup]="editTodoForm">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Task</mat-label>
+      <input matInput maxlength="200" placeholder="Do chores" formControlName="task" [(ngModel)]="this.edittedTodo.task">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Due Date</mat-label>
+      <div class="date_container w-max pt-2"><input matInput [matDatepicker]="picker" formControlName="due_date" placeholder="DD/MM/YYYY" [(ngModel)]="this.edittedTodo.due_date"></div>
+      <div class="date_toggle_container"><mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle></div>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Description</mat-label>
+      <input matInput placeholder="Do laundry, clean room, etc" formControlName="description" [(ngModel)]="this.edittedTodo.description">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Category</mat-label>
+      <mat-select placeholder={{edittedTodo.category}} [(value)]="edittedTodo.category">
+        <mat-option *ngFor="let cat of category_list" value=cat.value>{{cat.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="flex flex-row w-full justify-end">
+  <button mat-stroked-button (click)="saveEditTodo()" color="primary" class="w-32">Edit</button>
+</div>
