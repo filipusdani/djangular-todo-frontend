@@ -21,8 +21,8 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Category</mat-label>
-      <mat-select placeholder={{edittedTodo.category}} [(value)]="edittedTodo.category">
-        <mat-option *ngFor="let cat of category_list" value=cat.value>{{cat.name}}</mat-option>
+      <mat-select placeholder={{edittedTodo.category}} [(value)]="edittedTodo.category" formControlName="category">
+        <mat-option *ngFor="let cat of category_list" [value]="cat.value">{{cat.name}}</mat-option>
       </mat-select>
     </mat-form-field>
   </form>

@@ -4,14 +4,18 @@
 
 <div
     cdkDropList
+    cdkDropListLockAxis="y"
     (cdkDropListDropped)="drop($event)"
     *ngIf="!loadingDragDrop">
     <div *ngFor="let todo of todolist" class="w-full">
         <mat-card class="border rounded m-4 max-w-xl mx-auto" cdkDrag>
-            <mat-card-header>
-                <mat-card-title>{{todo.task}}</mat-card-title>
-                <mat-card-subtitle>Due Date: {{todo.due_date}}</mat-card-subtitle>
-            </mat-card-header>
+            <div class="flex flex-row w-full justify-between">
+                <mat-card-header>
+                    <mat-card-title>{{todo.task}}</mat-card-title>
+                    <mat-card-subtitle>Due Date: {{todo.due_date}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-subtitle>#{{todo.category}}</mat-card-subtitle>
+            </div>
             <mat-card-content  class="pl-4">
                 <p>{{todo.description}}</p>
                 <mat-divider></mat-divider>

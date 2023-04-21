@@ -68,9 +68,13 @@ export class EditTodoDialog implements OnInit {
 
   saveEditTodo() {
     if (this.editTodoForm.valid) {
-      let temp = this.editTodoForm.value.due_date
-      if (typeof(temp)=='object' && temp!=null) {
-        let dateStr = temp.getUTCFullYear() + '-' + (String('0'+(temp.getUTCMonth()+1))).slice((String('0'+(temp.getUTCMonth()+1))).length-2, (String('0'+(temp.getUTCMonth()+1))).length) + '-' + (temp.getUTCDate()+1) 
+      if (this.editTodoForm.value.due_date == "") {
+        this.editTodoForm.patchValue({due_date: null});
+      }
+      else if (typeof(this.editTodoForm.value.due_date) == 'object') {
+        let temp = this.editTodoForm.value.due_date
+        let dateStr = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), temp.getHours(), temp.getMinutes() - temp.getTimezoneOffset()).toISOString();
+        dateStr = dateStr.slice(0,10)
         this.editTodoForm.patchValue({due_date: dateStr});
       }
       this.editTodoForm.patchValue({order: this.edittedTodo.order})

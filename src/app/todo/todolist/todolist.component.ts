@@ -32,6 +32,7 @@ export class TodolistComponent implements OnInit {
   reload(): void {
     this.todoService.initTodoList().subscribe((res: Todo[]) => {
       this.todolist = res.sort((a, b) => { return a.order - b.order });
+      console.log(res);
     })
   }
 
