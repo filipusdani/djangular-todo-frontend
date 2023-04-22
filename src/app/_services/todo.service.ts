@@ -51,4 +51,15 @@ export class TodoService {
   public initTodoCategoryList() {
     return this.http.get<TodoCategory[]>(API_Todo_Endpoint + "category/?format=json");
   }
+
+  public postTodoCategory(param: TodoCategory) {
+    let body = JSON.stringify(param);
+    let url = API_Todo_Endpoint + "category/"
+    return this.http.post<any>(url, body, httpOptions)
+  }
+
+  public deleteTodoCategory(id: number) {
+    let url = API_Todo_Endpoint + "category/" + String(id) + "/"
+    return this.http.delete<any>(url, httpOptions)
+  }
 }

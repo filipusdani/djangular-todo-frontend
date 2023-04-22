@@ -1,1 +1,27 @@
-<p>todo-category works!</p>
+<div class="w-full text-center mt-4 space-x-[20px]">
+    <button mat-raised-button (click)="newTodoCategoryDialog()" color="add" class="w-[500px] h-16" matTooltip="Create New"><mat-icon>library_add</mat-icon></button>
+</div>
+
+<div class="w-full p-4">
+    <table mat-table [dataSource]="category_list" class="mat-elevation-z8 w-[500px] mx-auto">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+        <!-- Tag Column -->
+        <ng-container matColumnDef="tag">
+          <th mat-header-cell *matHeaderCellDef>Tag</th>
+          <td mat-cell *matCellDef="let element">#{{element.tag}}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row
+            (click)="deleteTodoCategory(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+            class="hover:bg-gray-200"
+        ></tr>
+    </table>
+</div>
+  
+  

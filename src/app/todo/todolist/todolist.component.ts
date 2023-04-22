@@ -6,7 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewTodoDialog } from './dialogs/new-todo-dialog';
 import { EditTodoDialog } from './dialogs/edit-todo-dialog';
 import { DeleteTodoDialog } from './dialogs/delete-todo-dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 // ===============================================================================================================================
 

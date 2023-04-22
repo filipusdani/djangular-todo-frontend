@@ -86,7 +86,6 @@ export class EditTodoDialog implements OnInit {
       }
       this.editTodoForm.patchValue({order: this.edittedTodo.order})
       console.log(this.editTodoForm.value)
-      this.dialogRef.close();
       this.submitEditTodo(this.editTodoForm.value)
     }
   }
@@ -95,6 +94,7 @@ export class EditTodoDialog implements OnInit {
     this.todoService.putTodo(this.id, param).subscribe(
       res => {console.log("Edit Submitted", res)
       this.openSnackBar("Task Edited")
+      this.dialogRef.close();
     })
 
   }

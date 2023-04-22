@@ -64,7 +64,6 @@ export class NewTodoDialog implements OnInit {
         this.newTodoForm.patchValue({due_date: dateStr});
       }
       this.newTodoForm.patchValue({order: this.data});
-      this.dialogRef.close();
       console.log(this.newTodoForm.value)
       this.submitNewTodo(this.newTodoForm.value)
     }
@@ -74,6 +73,7 @@ export class NewTodoDialog implements OnInit {
     this.todoService.postTodo(param).subscribe(
       res => {console.log("New Todo Submitted", res)
       this.openSnackBar("Task Created")
+      this.dialogRef.close();
     })
   }
 

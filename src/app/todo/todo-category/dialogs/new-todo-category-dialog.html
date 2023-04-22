@@ -1,0 +1,21 @@
+<div class="flex flex-row w-full justify-between">
+  <h1 mat-dialog-title class="">New Task</h1>
+  <button mat-icon-button matTooltip="Close" (click)="onNoClick()" class="mat-elevation-z0"><mat-icon>cancel</mat-icon></button>
+</div>
+
+<div class="">
+  <form [formGroup]="newTodoCategoryForm">
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Name</mat-label>
+      <input matInput maxlength="200" placeholder="General" formControlName="name">
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-full">
+      <mat-label>Tag</mat-label>
+      <input matInput maxlength="3" placeholder="Max 3 characters" formControlName="tag">
+    </mat-form-field>
+  </form>
+</div>
+
+<div class="flex flex-row w-full justify-end">
+  <button mat-stroked-button (click)="saveNewTodoCategory()" color="primary" class="w-32">Add</button>
+</div>
