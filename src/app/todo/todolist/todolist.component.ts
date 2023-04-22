@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoService } from 'src/app/_services/todo.service';
 import { Todo } from 'src/types/Appform';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewTodoDialog } from './dialogs/new-todo-dialog';
 import { EditTodoDialog } from './dialogs/edit-todo-dialog';
 import { DeleteTodoDialog } from './dialogs/delete-todo-dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // ===============================================================================================================================
 
@@ -22,7 +23,7 @@ export class TodolistComponent implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {

@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/_services/todo.service';
 import { Todo, TodoCategory } from 'src/types/Appform';
+import { TodoSnackBarComponent } from './snack-bar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // ===============================================================================================================================
 
@@ -38,7 +40,9 @@ export class EditTodoDialog implements OnInit {
     public dialogRef: MatDialogRef<EditTodoDialog>,
     @Inject(MAT_DIALOG_DATA) public data: number,
     private fb: FormBuilder,
-    private todoService: TodoService) {}
+    private todoService: TodoService,
+    private _snackBar: MatSnackBar,
+    ) {}
 
   ngOnInit(): void {
     this.id = this.data
@@ -77,7 +81,11 @@ export class EditTodoDialog implements OnInit {
         dateStr = dateStr.slice(0,10)
         this.editTodoForm.patchValue({due_date: dateStr});
       }
+      if (this.editTodoForm.value.category == "") {
+        this.editTodoForm.patchValue({category: this.edittedTodo.category})
+      }
       this.editTodoForm.patchValue({order: this.edittedTodo.order})
+      console.log(this.editTodoForm.value)
       this.dialogRef.close();
       this.submitEditTodo(this.editTodoForm.value)
     }
@@ -85,7 +93,16 @@ export class EditTodoDialog implements OnInit {
   
   submitEditTodo(param: Todo) {
     this.todoService.putTodo(this.id, param).subscribe(
-      res => console.log("Edit Submitted", res)
-    )
+      res => {console.log("Edit Submitted", res)
+      this.openSnackBar("Task Edited")
+    })
+
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.openFromComponent(TodoSnackBarComponent, {
+      duration: 2000,
+      data: message,
+    });
   }
 }

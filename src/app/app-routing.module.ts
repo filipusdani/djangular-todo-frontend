@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todolist/todolist.component';
 import { TodoCategoryComponent } from './todo/todo-category/todo-category.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'todo/list', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'list', component: TodolistComponent},
     { path: 'category', component: TodoCategoryComponent},
   ]},
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

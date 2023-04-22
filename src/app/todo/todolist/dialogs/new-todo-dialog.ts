@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/_services/todo.service';
 import { Todo, TodoCategory } from 'src/types/Appform';
+import { TodoSnackBarComponent } from './snack-bar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 // ===============================================================================================================================
 
@@ -27,7 +29,9 @@ export class NewTodoDialog implements OnInit {
     public dialogRef: MatDialogRef<NewTodoDialog>,
     @Inject(MAT_DIALOG_DATA) public data: number,
     private fb: FormBuilder,
-    private todoService: TodoService) {}
+    private todoService: TodoService,
+    private _snackBar: MatSnackBar,
+    ) {}
 
   ngOnInit(): void {
     this.newTodoForm = this.fb.group({
@@ -68,7 +72,15 @@ export class NewTodoDialog implements OnInit {
   
   submitNewTodo(param: Todo) {
     this.todoService.postTodo(param).subscribe(
-      res => console.log("New Todo Submitted", res)
-    )
+      res => {console.log("New Todo Submitted", res)
+      this.openSnackBar("Task Created")
+    })
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.openFromComponent(TodoSnackBarComponent, {
+      duration: 2000,
+      data: message,
+    });
   }
 }

@@ -19,6 +19,7 @@ import { NewTodoDialog } from './todo/todolist/dialogs/new-todo-dialog';
 import { EditTodoDialog } from './todo/todolist/dialogs/edit-todo-dialog';
 import { DeleteTodoDialog } from './todo/todolist/dialogs/delete-todo-dialog';
 import { TodoCategoryComponent } from './todo/todo-category/todo-category.component';
+import { TodoSnackBarComponent } from './todo/todolist/dialogs/snack-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TodoCategoryComponent } from './todo/todo-category/todo-category.compon
     EditTodoDialog,
     DeleteTodoDialog,
     TodoCategoryComponent,
+    TodoSnackBarComponent,
   ],
   imports: [
     BrowserModule,
