@@ -1,14 +1,15 @@
-<div class="w-full text-center mt-4">
-    <button mat-raised-button (click)="newTodoDialog()" color="primary" class="w-full max-w-xl" matTooltip="Create New"><mat-icon>add</mat-icon></button>
+<div class="w-full text-center mt-4 space-x-[20px]">
+    <button mat-raised-button (click)="newTodoDialog()" color="add" class="w-[500px] h-16" matTooltip="Create New"><mat-icon>library_add</mat-icon></button>
 </div>
 
 <div
     cdkDropList
     cdkDropListLockAxis="y"
     (cdkDropListDropped)="drop($event)"
-    *ngIf="!loadingDragDrop">
-    <div *ngFor="let todo of todolist" class="w-full">
-        <mat-card class="border rounded m-4 max-w-xl mx-auto" cdkDrag>
+    *ngIf="!loadingDragDrop"
+    class="w-full pb-4">
+    <div *ngFor="let todo of todolist" class="w-[500px] mx-auto transition ease-in-out hover:scale-105 duration-200">
+        <mat-card class="border rounded mt-4" cdkDrag>
             <div class="flex flex-row w-full justify-between">
                 <mat-card-header>
                     <mat-card-title>{{todo.task}}</mat-card-title>
@@ -20,9 +21,9 @@
                 <p>{{todo.description}}</p>
                 <mat-divider></mat-divider>
             </mat-card-content>
-            <mat-card-actions  class="pl-3" align="end">
-                <button mat-button (click)="editTodoDialog(todo.id)">EDIT</button>
-                <button mat-button (click)="deleteTodo(todo.id)" color="warn">DELETE</button>
+            <mat-card-actions  class="mx-8" align="end">
+                <button mat-icon-button (click)="editTodoDialog(todo.id)" class="hover:bg-gray-100"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button (click)="deleteTodo(todo.id)" color="warn" class="hover:bg-gray-100"><mat-icon>delete</mat-icon></button>
             </mat-card-actions>
         </mat-card>
     </div>
