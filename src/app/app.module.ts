@@ -9,15 +9,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { DateAdapter, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 
 import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todolist/todolist.component';
 import { NewTodoDialog } from './todo/todolist/dialogs/new-todo-dialog';
 import { EditTodoDialog } from './todo/todolist/dialogs/edit-todo-dialog';
 import { DeleteTodoDialog } from './todo/todolist/dialogs/delete-todo-dialog';
-import { MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
+import { TodoCategoryComponent } from './todo/todo-category/todo-category.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
     NewTodoDialog,
     EditTodoDialog,
     DeleteTodoDialog,
+    TodoCategoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Todo } from '../../types/Appform';
+import { Todo, TodoCategory } from '../../types/Appform';
 
 const API_Todo_Endpoint = environment.todoUrl;
 
@@ -46,5 +46,9 @@ export class TodoService {
   public deleteTodo(id: number) {
     let url = API_Todo_Endpoint + String(id) + "/"
     return this.http.delete<any>(url, httpOptions)
+  }
+
+  public initTodoCategoryList() {
+    return this.http.get<TodoCategory[]>(API_Todo_Endpoint + "category/?format=json");
   }
 }

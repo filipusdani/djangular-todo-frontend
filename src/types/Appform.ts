@@ -7,3 +7,9 @@ export interface Todo {
     status:number,
     order:number,
 }
+
+export interface TodoCategory {
+    id:number,
+    tag:string,
+    name:string,
+}

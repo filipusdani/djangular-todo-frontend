@@ -1,6 +1,16 @@
 <mat-toolbar color="primary">
-    <button class="h-full">
+    <button class="h-full" (click)="navigate('todo/list')">
         <span class="text-xl mx-4 hover:text-blue-200">TODO</span>
+    </button>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="navigate('todo/category')">
+                <mat-icon>tag</mat-icon>
+                <span>Edit Category</span>
+            </button>
+        </mat-menu>
     </button>
 </mat-toolbar>
 

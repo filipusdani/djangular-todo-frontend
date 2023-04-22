@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from 'src/app/_services/todo.service';
-import { Todo } from 'src/types/Appform';
+import { Todo, TodoCategory } from 'src/types/Appform';
 
 // ===============================================================================================================================
 
@@ -13,11 +13,7 @@ import { Todo } from 'src/types/Appform';
   })
 export class EditTodoDialog implements OnInit {
 
-  category_list = [
-    { value:"GEN", name:'General' },
-    { value:"CIT", name:'CIT' },
-    { value:"SEP", name:'SEP' },
-  ]
+  category_list: TodoCategory[] = []
 
   editTodoForm: FormGroup = new FormGroup({
     task: new FormControl(''),
@@ -52,6 +48,10 @@ export class EditTodoDialog implements OnInit {
         this.edittedTodo = res
       }
     )
+    this.todoService.initTodoCategoryList().subscribe((res: TodoCategory[]) => {
+      this.category_list = res;
+      console.log(res);
+    })
     this.editTodoForm = this.fb.group({
       task: [this.edittedTodo.task, Validators.required],
       description: [this.edittedTodo.description],
