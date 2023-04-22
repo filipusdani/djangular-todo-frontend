@@ -16,10 +16,10 @@ import { DeleteTodoDialog } from './dialogs/delete-todo-dialog';
 })
 export class TodolistComponent implements OnInit {
 
-  todolist: Todo[] = [];
-  new_order = 0;
-  loadingDragDrop: boolean = false;
-  category_list: String[] = [];
+  todolist: Todo[] = []
+  new_order = 0
+  loadingDragDrop: boolean = false
+  category_list: String[] = []
 
   constructor(
     private todoService: TodoService,

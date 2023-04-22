@@ -5,17 +5,6 @@ import { MAT_SNACK_BAR_DATA } from "@angular/material/snack-bar";
 @Component({
     selector: 'snack-bar-component',
     templateUrl: 'snack-bar.component.html',
-    styles: [
-      `
-      :host {
-        display: flex;
-      }
-  
-      .example-pizza-party {
-        color: hotpink;
-      }
-    `,
-    ],
   })
   export class TodoCategorySnackBarComponent {
     snackBarRef = inject(MatSnackBarRef);

@@ -5,6 +5,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todolist/todolist.component';
 import { TodoCategoryComponent } from './todo/todo-category/todo-category.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TodoResetOrderComponent } from './todo/todo-reset-order/todo-reset-order.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'todo/list', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'todo', component: TodoComponent, children: [
     { path: 'list', component: TodolistComponent},
     { path: 'category', component: TodoCategoryComponent},
+    { path: 'reset-order', component: TodoResetOrderComponent},
   ]},
   { path: '**', component: NotFoundComponent },
 ];
