@@ -11,7 +11,7 @@
     </mat-form-field>
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Tag</mat-label>
-      <input matInput maxlength="3" placeholder="Max 3 characters" formControlName="tag">
+      <input matInput maxlength="3" placeholder="Max 3 characters" formControlName="tag" oninput="this.value = this.value.toUpperCase()">
     </mat-form-field>
   </form>
 </div>

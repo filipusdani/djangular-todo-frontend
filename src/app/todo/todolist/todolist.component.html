@@ -1,5 +1,9 @@
 <div class="w-full text-center mt-4 space-x-[20px]">
-    <button mat-raised-button (click)="newTodoDialog()" color="add" class="w-[500px] h-16" matTooltip="Create New"><mat-icon>library_add</mat-icon></button>
+    <button mat-raised-button color="sort" (click)="getCategoryList()" class="w-[240px] h-16" matTooltip="Filter Category" [matMenuTriggerFor]="FilterCategory"><mat-icon>filter</mat-icon></button>
+    <mat-menu #FilterCategory="matMenu">
+        <button mat-menu-item *ngFor="let category of category_list" (click)="filterCategory(category)">{{category}}</button>
+      </mat-menu>
+    <button mat-raised-button (click)="newTodoDialog()" color="add" class="w-[240px] h-16" matTooltip="Create New"><mat-icon>library_add</mat-icon></button>
 </div>
 
 <div

@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   })
 export class DeleteTodoCategoryDialog implements OnInit {
 
-  id: number = 0;
+  id: number = 0
 
   constructor(
     public dialogRef: MatDialogRef<DeleteTodoCategoryDialog>,
@@ -26,7 +26,7 @@ export class DeleteTodoCategoryDialog implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close({data:"Dialog Closed"});
+    this.dialogRef.close({data:"Dialog Closed"})
   }
  
   submitDeleteTodoCategory() {
@@ -42,6 +42,6 @@ export class DeleteTodoCategoryDialog implements OnInit {
     this._snackBar.openFromComponent(TodoCategorySnackBarComponent, {
       duration: 2000,
       data: message,
-    });
+    })
   }
 }

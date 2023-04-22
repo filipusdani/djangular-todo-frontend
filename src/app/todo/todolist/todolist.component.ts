@@ -17,8 +17,9 @@ import { DeleteTodoDialog } from './dialogs/delete-todo-dialog';
 export class TodolistComponent implements OnInit {
 
   todolist: Todo[] = [];
-  new_order = 0
+  new_order = 0;
   loadingDragDrop: boolean = false;
+  category_list: String[] = [];
 
   constructor(
     private todoService: TodoService,
@@ -31,8 +32,8 @@ export class TodolistComponent implements OnInit {
 
   reload(): void {
     this.todoService.initTodoList().subscribe((res: Todo[]) => {
-      this.todolist = res.sort((a, b) => { return a.order - b.order });
-      console.log(res);
+      this.todolist = res.sort((a, b) => { return a.order - b.order })
+      console.log(res)
     })
   }
 
@@ -76,11 +77,11 @@ export class TodolistComponent implements OnInit {
       width: '500px',
       data: this.new_order,
       autoFocus: false,
-    });
+    })
     dialogRef.afterClosed().subscribe(result => {
-      console.log('New Todo dialog was closed');
+      console.log('New Todo dialog was closed')
       this.reload()
-    });
+    })
   }
 
   editTodoDialog(id: number): void {
@@ -88,11 +89,11 @@ export class TodolistComponent implements OnInit {
       width: '500px',
       data: id,
       autoFocus: false,
-    });
+    })
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Edit Todo dialog was closed');
+      console.log('Edit Todo dialog was closed')
       this.reload()
-    });
+    })
   }
 
   deleteTodo(id: number): void {
@@ -100,10 +101,21 @@ export class TodolistComponent implements OnInit {
       width: '400px',
       data: id,
       autoFocus: false,
-    });
+    })
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Delete Todo dialog was closed');
+      console.log('Delete Todo dialog was closed')
       this.reload()
-    });
+    })
+  }
+
+  getCategoryList(): void {
+    this.category_list = this.todolist.map(x => x.category).filter((item, i, ar) => ar.indexOf(item) === i)
+    this.todoService.initTodoList().subscribe((res: Todo[]) => {
+      this.category_list = this.todolist.map(x => x.category).filter((item, i, ar) => ar.indexOf(item) === i)
+    })
+  }
+
+  filterCategory(category: String): void {
+    this.todolist = this.todolist.filter(item => item.category === category)
   }
 }

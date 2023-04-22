@@ -32,12 +32,12 @@ export class NewTodoCategoryDialog implements OnInit {
     this.newTodoCategoryForm = this.fb.group({
       name: ['', Validators.required],
       tag: ['', Validators.required],
-    });
+    })
   }
   get f(): { [key: string]: AbstractControl } {return this.newTodoCategoryForm.controls;}
 
   onNoClick(): void {
-    this.dialogRef.close({data:"Dialog Closed"});
+    this.dialogRef.close({data:"Dialog Closed"})
   }
 
   saveNewTodoCategory() {

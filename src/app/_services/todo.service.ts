@@ -15,10 +15,9 @@ const httpOptions = {
 export class TodoService {
 
   constructor(private http: HttpClient) {}
-  todo: Todo[] = [];
 
   public initTodoList() {
-    return this.http.get<Todo[]>(API_Todo_Endpoint + "?format=json");
+    return this.http.get<Todo[]>(API_Todo_Endpoint + "?format=json")
   }
 
   public getTodo(id: number) {
@@ -49,7 +48,7 @@ export class TodoService {
   }
 
   public initTodoCategoryList() {
-    return this.http.get<TodoCategory[]>(API_Todo_Endpoint + "category/?format=json");
+    return this.http.get<TodoCategory[]>(API_Todo_Endpoint + "category/?format=json")
   }
 
   public postTodoCategory(param: TodoCategory) {

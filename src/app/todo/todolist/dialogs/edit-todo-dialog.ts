@@ -53,8 +53,8 @@ export class EditTodoDialog implements OnInit {
       }
     )
     this.todoService.initTodoCategoryList().subscribe((res: TodoCategory[]) => {
-      this.category_list = res;
-      console.log(res);
+      this.category_list = res
+      console.log(res)
     })
     this.editTodoForm = this.fb.group({
       task: [this.edittedTodo.task, Validators.required],
@@ -62,22 +62,22 @@ export class EditTodoDialog implements OnInit {
       category: [this.edittedTodo.category],
       due_date: [this.edittedTodo.due_date],
       order: [this.edittedTodo.order],
-    });
+    })
   }
   get f(): { [key: string]: AbstractControl } {return this.editTodoForm.controls;}
 
   onNoClick(): void {
-    this.dialogRef.close({data:"Dialog Closed"});
+    this.dialogRef.close({data:"Dialog Closed"})
   }
 
   saveEditTodo() {
     if (this.editTodoForm.valid) {
       if (this.editTodoForm.value.due_date == "") {
-        this.editTodoForm.patchValue({due_date: null});
+        this.editTodoForm.patchValue({due_date: null})
       }
       else if (typeof(this.editTodoForm.value.due_date) == 'object') {
         let temp = this.editTodoForm.value.due_date
-        let dateStr = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), temp.getHours(), temp.getMinutes() - temp.getTimezoneOffset()).toISOString();
+        let dateStr = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), temp.getHours(), temp.getMinutes() - temp.getTimezoneOffset()).toISOString()
         dateStr = dateStr.slice(0,10)
         this.editTodoForm.patchValue({due_date: dateStr});
       }
@@ -96,13 +96,12 @@ export class EditTodoDialog implements OnInit {
       this.openSnackBar("Task Edited")
       this.dialogRef.close();
     })
-
   }
 
   openSnackBar(message: string) {
     this._snackBar.openFromComponent(TodoSnackBarComponent, {
       duration: 2000,
       data: message,
-    });
+    })
   }
 }

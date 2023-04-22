@@ -25,8 +25,8 @@ export class TodoCategoryComponent implements OnInit {
 
   reload(): void {
     this.todoService.initTodoCategoryList().subscribe((res: TodoCategory[]) => {
-      this.category_list = res;
-      console.log(res);
+      this.category_list = res
+      console.log(res)
     })
   }
 
@@ -34,11 +34,11 @@ export class TodoCategoryComponent implements OnInit {
     const dialogRef = this.dialog.open(NewTodoCategoryDialog, {
       width: '500px',
       autoFocus: false,
-    });
+    })
     dialogRef.afterClosed().subscribe(result => {
       console.log('New Todo dialog was closed');
       this.reload()
-    }); 
+    })
   }
 
   deleteTodoCategory(row: any): void {
@@ -46,10 +46,10 @@ export class TodoCategoryComponent implements OnInit {
       width: '400px',
       data: row.id,
       autoFocus: false,
-    });
+    })
     dialogRef.afterClosed().subscribe(result => {
       console.log('Delete Todo dialog was closed');
       this.reload()
-    });
+    })
   }
 }

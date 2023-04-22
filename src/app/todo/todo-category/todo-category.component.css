@@ -15,3 +15,8 @@
 .demo-row-is-clicked {
     font-weight: bold;
 }
+
+.mat-raised-button.mat-add {
+    color: #f0fff3;
+    background-color: #3498db;
+}

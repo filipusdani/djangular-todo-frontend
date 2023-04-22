@@ -40,16 +40,16 @@ export class NewTodoDialog implements OnInit {
       category: [''],
       due_date: [''],
       order: [0]
-    });
+    })
     this.todoService.initTodoCategoryList().subscribe((res: TodoCategory[]) => {
-      this.category_list = res;
-      console.log(res);
+      this.category_list = res
+      console.log(res)
     })
   }
   get f(): { [key: string]: AbstractControl } {return this.newTodoForm.controls;}
 
   onNoClick(): void {
-    this.dialogRef.close({data:"Dialog Closed"});
+    this.dialogRef.close({data:"Dialog Closed"})
   }
 
   saveNewTodo() {
@@ -59,11 +59,11 @@ export class NewTodoDialog implements OnInit {
       }
       else {
         let temp = this.newTodoForm.value.due_date
-        let dateStr = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), temp.getHours(), temp.getMinutes() - temp.getTimezoneOffset()).toISOString();
+        let dateStr = new Date(temp.getFullYear(), temp.getMonth(), temp.getDate(), temp.getHours(), temp.getMinutes() - temp.getTimezoneOffset()).toISOString()
         dateStr = dateStr.slice(0,10)
-        this.newTodoForm.patchValue({due_date: dateStr});
+        this.newTodoForm.patchValue({due_date: dateStr})
       }
-      this.newTodoForm.patchValue({order: this.data});
+      this.newTodoForm.patchValue({order: this.data})
       console.log(this.newTodoForm.value)
       this.submitNewTodo(this.newTodoForm.value)
     }
@@ -73,7 +73,7 @@ export class NewTodoDialog implements OnInit {
     this.todoService.postTodo(param).subscribe(
       res => {console.log("New Todo Submitted", res)
       this.openSnackBar("Task Created")
-      this.dialogRef.close();
+      this.dialogRef.close()
     })
   }
 
@@ -81,6 +81,6 @@ export class NewTodoDialog implements OnInit {
     this._snackBar.openFromComponent(TodoSnackBarComponent, {
       duration: 2000,
       data: message,
-    });
+    })
   }
 }
