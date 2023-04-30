@@ -10,7 +10,9 @@ export class TodoComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.router.navigateByUrl("todo/list")
+  }
 
   navigate(path: string) {
     this.router.navigateByUrl(path)

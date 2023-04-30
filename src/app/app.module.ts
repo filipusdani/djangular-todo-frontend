@@ -24,6 +24,7 @@ import { NewTodoCategoryDialog } from './todo/todo-category/dialogs/new-todo-cat
 import { DeleteTodoCategoryDialog } from './todo/todo-category/dialogs/delete-todo-category-dialog';
 import { TodoCategorySnackBarComponent } from './todo/todo-category/dialogs/snack-bar.component';
 import { TodoResetOrderComponent } from './todo/todo-reset-order/todo-reset-order.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { TodoResetOrderComponent } from './todo/todo-reset-order/todo-reset-orde
     DeleteTodoCategoryDialog,
     TodoCategorySnackBarComponent,
     TodoResetOrderComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
