@@ -9,8 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // ===============================================================================================================================
 
 @Component({
-    selector: 'Edit-todo-dialog',
-    templateUrl: 'Edit-todo-dialog.html',
+    selector: 'edit-todo-dialog',
+    templateUrl: 'edit-todo-dialog.html',
     styleUrls: ['./todo-dialog.css'],
   })
 export class EditTodoDialog implements OnInit {

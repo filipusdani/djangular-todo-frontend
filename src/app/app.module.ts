@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MAT_MOMENT_DATE_FORMATS } from '@angular/material-moment-adapter';
 
 import { TodoComponent } from './todo/todo.component';
 import { TodolistComponent } from './todo/todolist/todolist.component';
@@ -56,7 +55,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
   providers: [
     MatDatepickerModule,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-    { provide: MAT_MOMENT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

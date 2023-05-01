@@ -7,8 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 // ===============================================================================================================================
 
 @Component({
-    selector: 'Delete-todo-dialog',
-    templateUrl: 'Delete-todo-dialog.html',
+    selector: 'delete-todo-dialog',
+    templateUrl: 'delete-todo-dialog.html',
   })
 export class DeleteTodoDialog implements OnInit {
 

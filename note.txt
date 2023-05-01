@@ -1,0 +1,2 @@
+docker build -t djangular-todo-frontend .
+docker run -dp 8080:80 djangular-todo-frontend
