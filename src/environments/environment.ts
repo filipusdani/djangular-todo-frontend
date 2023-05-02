@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  todoUrl:'http://localhost:8000/api/v1/todo/',
+  todoUrl:'http://157.245.198.187:8000/api/v1/todo/',
 };
 
 /*
